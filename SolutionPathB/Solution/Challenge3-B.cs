@@ -8,10 +8,11 @@ namespace SolutionPathB.Solution
 	{
 		private const string startEndpoint = "/api/path/b/hard/start";
 
-		private const string sampleEndpoint = "/api/path/b/hard/sample";
+		private const string sampleEndpoint = "/api/path/b/hard/puzzle";
 
 		Dictionary<char, int> lookup = new Dictionary<char, int>()
 			{
+				{ 'Ⱄ', 0 },
 				{ '·', 1 },
 				{ '|', 5 }
 			};
@@ -87,7 +88,10 @@ namespace SolutionPathB.Solution
 				var count5s = term / 5;
 				int rem = term % 5;
 
-				result.Add($"{new string('|', count5s)}{new string('.', rem)}");
+				if (term == 0)
+					result.Add("Ⱄ");
+				else
+					result.Add($"{new string('|', count5s)}{new string('·', rem)}");
 
 				remainder = temp;
 
@@ -103,7 +107,7 @@ namespace SolutionPathB.Solution
 				builder.Append(' ');
 			}
 
-			return builder.ToString();
+			return builder.ToString().TrimEnd();
 		}
 
 	}
