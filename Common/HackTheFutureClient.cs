@@ -18,4 +18,6 @@ public class HackTheFutureClient : HttpClient
         var token = await response.Content.ReadAsStringAsync();
         DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     }
+
+
 }
