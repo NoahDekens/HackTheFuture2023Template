@@ -57,12 +57,10 @@ namespace SolutionPathB.Solution
             {
 				days[i] = startDate.DayOfWeek.ToString();
 				startDate = startDate.AddDays(1);
-				Console.WriteLine(days[i]);
             }
 
             for (int i = 0; i < days.Length; i++)
             {
-				string test = days[i];
 				if (dayToCheck == days[i])
 					amountDaysOfWeek++;
             }
